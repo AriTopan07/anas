@@ -10,11 +10,12 @@ class ActionController extends Controller
 {
     protected $action;
 
-    public function __construct(ActionRepository $action) {
+    public function __construct(ActionRepository $action)
+    {
 
         $this->action = $action;
-        $this->middleware(function ($request, $next){
-            Session::put('menu_active','/action');
+        $this->middleware(function ($request, $next) {
+            Session::put('menu_active', '/action');
             return $next($request);
         });
     }

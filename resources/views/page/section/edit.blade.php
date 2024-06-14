@@ -16,7 +16,8 @@
                             @csrf
                             <label>Nama Section</label>
                             <div class="form-group">
-                                <input type="text" placeholder="Nama Section" class="form-control" name="name_section" required value="{{ $data->name_section }}">
+                                <input type="text" placeholder="Nama Section" class="form-control" name="name_section"
+                                    required value="{{ $data->name_section }}">
                             </div>
                             <div id="form-icon"></div>
                             <div class="form-group">
@@ -24,7 +25,8 @@
                                 <a href="#" onclick="modalIcon()" class="btn btn-secondary btn-sm ms-2">Pilih Icon</a>
                             </div>
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" name="status" value="active" role="switch" id="status" {{ ($data->status === 'active') ? 'checked' : '' }}>
+                                <input class="form-check-input" type="checkbox" name="status" value="active" role="switch"
+                                    id="status" {{ $data->status === 'active' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="status">Status</label>
                             </div>
                             <button type="submit" class="btn btn-primary mb-4">Simpan</button>
@@ -101,17 +103,20 @@
                                 <div class="col">
                                     <label>Nama Menu</label>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Nama Menu" class="form-control" id="name_menu" name="name_menu" required>
+                                        <input type="text" placeholder="Nama Menu" class="form-control" id="name_menu"
+                                            name="name_menu" required>
                                     </div>
                                     <label>Url</label>
                                     <div class="form-group">
-                                        <input type="text" placeholder="URL" class="form-control" id="url" name="url" required>
+                                        <input type="text" placeholder="URL" class="form-control" id="url"
+                                            name="url" required>
                                     </div>
                                     <label for="">Section</label>
                                     <div class="form-group">
                                         <select class="form-select" name="section_id" id="section_id">
                                             @foreach ($section as $item)
-                                                <option {{ ($item->id === $data->id) ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name_section }}</option>
+                                                <option {{ $item->id === $data->id ? 'selected' : '' }}
+                                                    value="{{ $item->id }}">{{ $item->name_section }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -125,7 +130,8 @@
                                         </select>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" name="status" value="active" role="switch" id="status-act" >
+                                        <input class="form-check-input" type="checkbox" name="status" value="active"
+                                            role="switch" id="status-act">
                                         <label class="form-check-label" for="status">Status</label>
                                     </div>
                                 </div>
@@ -164,11 +170,13 @@
                                 <div class="col">
                                     <label>Nama Menu</label>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Nama Menu" class="form-control" id="name_menu" name="name_menu" required>
+                                        <input type="text" placeholder="Nama Menu" class="form-control"
+                                            id="name_menu" name="name_menu" required>
                                     </div>
                                     <label>Url</label>
                                     <div class="form-group">
-                                        <input type="text" placeholder="URL" class="form-control" id="url" name="url" required>
+                                        <input type="text" placeholder="URL" class="form-control" id="url"
+                                            name="url" required>
                                     </div>
                                     <input type="hidden" name="section_id" value="{{ $data->id }}">
                                     <label for="">Parent</label>
@@ -206,7 +214,7 @@
                     $('#modal-icon').modal('toggle')
                     $('#selected-icon').attr('class', `bi bi-${icon}`)
                     $('#form-icon').html(`<input type="hidden" name="icons" value="${icon}">`)
-                }else{
+                } else {
                     $('#modal-icon').modal('show')
                 }
             }
@@ -228,7 +236,7 @@
                 parent_id.val(data.payload.parent_id)
                 if (data.payload.status === 'active') {
                     status.attr('checked', true)
-                }else if (data.payload.status === 'inactive'){
+                } else if (data.payload.status === 'inactive') {
                     status.attr('checked', false)
                 }
                 formEditMenu.attr('action', `/menu/update/${id}`)

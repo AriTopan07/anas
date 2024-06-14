@@ -36,8 +36,16 @@ class MasterActionSeeder extends Seeder
                 ],
                 [
                     'name' => 'delete',
-                    'description' => 'Tombol aksi untuk menghapus data',
-                ]
+                    'description' => 'Tombol aksi untuk verifikasi data',
+                ],
+                [
+                    'name' => 'verif',
+                    'description' => '-',
+                ],
+                [
+                    'name' => 'export',
+                    'description' => 'Tombol aksi untuk export data',
+                ],
             ]);
     }
 }

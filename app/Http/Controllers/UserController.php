@@ -12,14 +12,15 @@ class UserController extends Controller
 {
     protected $userRepository;
 
-    public function __construct(UserRepository $user) {
-        $this->middleware(function ($request, $next){
-            Session::put('menu_active','/users');
+    public function __construct(UserRepository $user)
+    {
+        $this->middleware(function ($request, $next) {
+            Session::put('menu_active', '/users');
             return $next($request);
         });
         $this->userRepository = $user;
     }
-    
+
     public function index(Request $request)
     {
         $menu = 'User';
@@ -27,14 +28,15 @@ class UserController extends Controller
         return view('page.users', compact('data', 'menu'));
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $data = $this->userRepository->get_data_by_id($id);
-        if(!empty($data)){
+        if (!empty($data)) {
             return response()->json([
                 'success' => true,
                 'data' => $data
             ]);
-        }else{
+        } else {
             return response()->json([
                 'success' => false,
                 'data' => []
@@ -45,11 +47,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = $this->userRepository->create($request->all());
-        
+
         return response()->json([
-            'success'=>true,
+            'success' => true,
             'data' => $user,
-            'message' => 'Berhasil ditambahkan!' 
+            'message' => 'Berhasil ditambahkan!'
         ]);
     }
 

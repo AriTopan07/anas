@@ -20,13 +20,9 @@ class GroupSeeder extends Seeder
                 'description' => 'Hak Akses untuk Admin',
             ],
             [
-                'name' => 'Marketing',
-                'description' => 'Hak Akses untuk marketing',
+                'name' => 'User',
+                'description' => 'Hak Akses untuk user',
             ],
-            [
-                'name' => 'SPG',
-                'description' => 'Hak Akses untuk SPG',
-            ]
         ]);
     }
 }

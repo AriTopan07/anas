@@ -16,19 +16,50 @@ class SectionSeeder extends Seeder
     {
         DB::table('menu_sections')
             ->insert([
-                'name_section' => 'Users',
+                'name_section' => 'Master Data',
+                'order' => 1,
+                'icons' => 'grid-fill',
+                'status' => 'active',
+            ]);
+
+        DB::table('menu_sections')
+            ->insert([
+                'name_section' => 'Transactions',
+                'order' => 2,
+                'icons' => 'grid-fill',
+                'status' => 'active',
+            ]);
+
+        DB::table('menu_sections')
+            ->insert([
+                'name_section' => 'Stock',
+                'order' => 3,
+                'icons' => 'grid-fill',
+                'status' => 'active',
+            ]);
+
+        DB::table('menu_sections')
+            ->insert([
+                'name_section' => 'Report',
                 'order' => 4,
+                'icons' => 'grid-fill',
+                'status' => 'active',
+            ]);
+
+        DB::table('menu_sections')
+            ->insert([
+                'name_section' => 'Users',
+                'order' => 5,
                 'icons' => 'people',
                 'status' => 'active',
             ]);
-            
+
         DB::table('menu_sections')
-        ->insert([
-            'name_section' => 'Settings',
-                'order' => 8,
+            ->insert([
+                'name_section' => 'Settings',
+                'order' => 6,
                 'icons' => 'file-earmark-bar-graph',
                 'status' => 'active',
             ]);
-            
     }
 }

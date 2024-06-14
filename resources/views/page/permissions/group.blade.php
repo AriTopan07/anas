@@ -8,7 +8,8 @@
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    {!! NavHelper::action('header') !!}
+                    <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal"
+                        data-bs-target="#modal_add"><i class="bi bi-plus"></i> Tambah</button>
                 </div>
                 <div class="card-body table-responsive">
                     <table class="table table-striped" id="table1">
@@ -28,15 +29,16 @@
                                     <td>{{ $item->description }}</td>
                                     <td>
                                         <button value="{{ $item->id }}" type="button"
-                                            class="btn btn-warning btn-sm groupEdit" data-bs-toggle="modal"
+                                            class="btn btn-primary btn-sm groupEdit" data-bs-toggle="modal"
                                             data-bs-target="#modal_edit" title="Edit"><i
                                                 class="bi bi-pencil"></i></button>
                                         <a href="{{ route('permission.data-akses', ['id' => $item->id]) }}"
-                                            class="btn btn-primary btn-sm" title="Atur Akses"><i class="bi bi-grid"></i></a>
-                                        <a href="#" onclick="deleteGroup({{ $item->id }})">
-                                            <button type="button" class="btn btn-danger btn-sm" title="Hapus"><i
-                                                    class="bi bi-trash"></i></button>
-                                        </a>
+                                            class="btn btn-warning btn-sm" title="Atur Akses"><i class="bi bi-gear"></i></a>
+                                        @if (NavHelper::cekAkses(Auth::user()->id, 'Group', 'delete') == true)
+                                            <button onclick="deletes({{ $item->id }})" type="button"
+                                                class="btn btn-danger btn-sm"><i class="bi bi-trash3"
+                                                    title="Hapus"></i></button>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -121,8 +123,8 @@
                         <div class="row">
                             <label>Nama</label>
                             <div class="form-group">
-                                <input type="text" placeholder="Nama" class="form-control" name="name" id="name"
-                                    required value="{{ old('name') }}">
+                                <input type="text" placeholder="Nama" class="form-control" name="name"
+                                    id="name" required value="{{ old('name') }}">
                             </div>
                             <label>Deskripsi</label>
                             <div class="form-group">

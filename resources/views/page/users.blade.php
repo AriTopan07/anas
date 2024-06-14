@@ -99,20 +99,20 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary ml-1 btn-simpan">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Simpan</span>
-                        </button>
-                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Tutup</span>
-                        </button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary ml-1 btn-simpan">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Simpan</span>
+                            </button>
+                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Tutup</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
 
@@ -155,13 +155,13 @@
                             </div>
                             <label>Confirm Password</label>
                             <div class="form-group">
-                                <input type="text" placeholder="password" class="form-control" name="repassword_create"
-                                    id="repassword" required value="{{ old('repassword') }}">
+                                <input type="text" placeholder="password" class="form-control"
+                                    name="repassword_create" id="repassword" required value="{{ old('repassword') }}">
                             </div>
                             <label>Status</label>
                             <div class="form-group">
-                                <select class="form-control" name="status_create" id="status" class="form-control choices"
-                                    required value="{{ old('status') }}">
+                                <select class="form-control" name="status_create" id="status"
+                                    class="form-control choices" required value="{{ old('status') }}">
                                     <option value="active">active</option>
                                     <option value="nonactive">nonactive</option>
                                 </select>
@@ -265,8 +265,7 @@
                         console.log(item);
                     });
                 },
-                complete: function() {
-                }
+                complete: function() {}
             })
         }
 

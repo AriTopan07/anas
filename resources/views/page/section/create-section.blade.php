@@ -27,7 +27,8 @@
                                     <td>{{ $item->name_section }}</td>
                                     <td>{{ $item->order }}</td>
                                     <td>
-                                        <a href="/section/edit/{{ $item->id }}" type="button" class="btn btn-warning btn-sm" >Edit</a>
+                                        <a href="/section/edit/{{ $item->id }}" type="button"
+                                            class="btn btn-warning btn-sm">Edit</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -39,7 +40,8 @@
     </div>
 
     {{-- Modal Tambah Section --}}
-    <div class="modal fade text-left modal-lg" id="modal_add" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+    <div class="modal fade text-left modal-lg" id="modal_add" role="dialog" aria-labelledby="myModalLabel33"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -53,7 +55,8 @@
                     <div class="modal-body">
                         <label>Nama Section</label>
                         <div class="form-group">
-                            <input type="text" placeholder="Nama Section" class="form-control" id="name_section" name="name_section" required>
+                            <input type="text" placeholder="Nama Section" class="form-control" id="name_section"
+                                name="name_section" required>
                         </div>
                         <div id="form-icon"></div>
                         <div class="form-group">
@@ -77,7 +80,8 @@
     </div>
 
     {{-- Modal Icon --}}
-    <div class="modal fade text-left modal-lg" id="modal-icon" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+    <div class="modal fade text-left modal-lg" id="modal-icon" role="dialog" aria-labelledby="myModalLabel33"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -105,11 +109,11 @@
                 $('#modal-icon').modal('toggle')
                 $('#selected-icon').attr('class', `bi bi-${icon}`)
                 $('#form-icon').html(`<input type="hidden" name="icons" value="${icon}">`)
-            }else{
+            } else {
                 $('#modal-icon').modal('show')
             }
         }
-        
+
         const modalAddSection = () => {
             $('#modal-section').modal('show')
         }

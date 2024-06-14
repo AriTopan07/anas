@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Repository;
 
 use App\Models\Conversion;
@@ -6,10 +7,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class UserRepository{
+class UserRepository
+{
     protected $user;
 
-    public function __construct(User $con) {
+    public function __construct(User $con)
+    {
         $this->user = $con;
     }
 
@@ -35,5 +38,4 @@ class UserRepository{
 
         return $result;
     }
-
 }

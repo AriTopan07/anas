@@ -19,8 +19,8 @@ class SectionController extends Controller
     {
         $this->section = $sctn;
         $this->menu = $menu;
-        $this->middleware(function ($request, $next){
-            Session::put('menu_active','/create-section');
+        $this->middleware(function ($request, $next) {
+            Session::put('menu_active', '/create-section');
             return $next($request);
         });
     }
@@ -32,13 +32,13 @@ class SectionController extends Controller
     public function index()
     {
         $data = DB::table('menus')
-                    ->select('menus.name_menu', 'menus.url', 'menus.section_id', 'menus.icons', 'menus.order')
-                    ->join('actions', 'actions.menu_id', '=', 'menus.id')
-                    ->join('master_actions', 'master_actions.id', '=', 'actions.master_action_id')
-                    ->join('action_groups', 'action_groups.action_id', '=', 'actions.id')
-                    ->where('master_actions.name', 'lihat')
-                    ->where('action_groups.group_id', 1)
-                    ->get();
+            ->select('menus.name_menu', 'menus.url', 'menus.section_id', 'menus.icons', 'menus.order')
+            ->join('actions', 'actions.menu_id', '=', 'menus.id')
+            ->join('master_actions', 'master_actions.id', '=', 'actions.master_action_id')
+            ->join('action_groups', 'action_groups.action_id', '=', 'actions.id')
+            ->where('master_actions.name', 'lihat')
+            ->where('action_groups.group_id', 1)
+            ->get();
         $result = [];
 
         foreach ($data as $value) {
@@ -122,7 +122,7 @@ class SectionController extends Controller
                     'section' => $hasSection->name_section,
                     'icons' => $hasSection->icons,
                     'order' => $hasSection->order,
-                    'status' => $hasSection->status, 
+                    'status' => $hasSection->status,
                     'menu' => [
                         [
                             'url' => $m->url,
@@ -184,7 +184,7 @@ class SectionController extends Controller
         $iconPath = public_path('assets/extensions/bootstrap-icons/icons');
         $icons = File::allFiles($iconPath);
         $data = $this->section->get_all_section();
-        
+
         return view('page.section.create-section', compact('icons', 'data'));
     }
 
